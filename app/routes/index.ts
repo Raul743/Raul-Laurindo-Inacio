@@ -1,8 +1,8 @@
 // importing files
-
 import { ensureAuthenticated } from '~/middlewares/ensureAuthenticated';
 import authenticationRoutes from '~/modules/authentication/infra/routes/auth.routes';
 import usersRoutes from '~/modules/authentication/infra/routes/users.routes';
+import tasksRoutes from '~/modules/tasks/infra/routes/tasks.routes';
 import { Router } from 'express';
 
 import baseRoute from './base.routes';
@@ -15,4 +15,5 @@ routes.use(authenticationRoutes);
 routes.use(ensureAuthenticated);
 // authenticated routes
 routes.use(usersRoutes);
+routes.use(tasksRoutes);
 export default routes;
