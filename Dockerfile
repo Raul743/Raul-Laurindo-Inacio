@@ -1,6 +1,6 @@
 FROM node:16
 
-ENV PORT=3331
+ENV PORT=3000
 
 WORKDIR /usr/app/app
 
