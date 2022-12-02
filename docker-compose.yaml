@@ -1,10 +1,32 @@
-version: '3.7'
+version: '3.8'
 
 services:
   app:
-    container_name: mamboo-challenge
+    container_name: Mamboo-Task
     restart: always
     build: .
     ports:
-      - "3331:3331"
+      - "3000:3000"
     command: npm run start
+
+  db:
+    image: mongo:5.0.5
+    container_name: mongodb
+    ports:
+      - ${HOST_PORT}:${CONTAINER_PORT}
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+    env_file:
+      - .env
+    restart: always
+    command: mongod --auth --setParameter diagnosticDataCollectionEnabled=false
+    volumes:
+      #add persistent storage
+      - db:/data/db
+      #add path to startup script
+      - ./entrypoint/:/docker-entrypoint-initdb.d/
+
+volumes:
+  db:
