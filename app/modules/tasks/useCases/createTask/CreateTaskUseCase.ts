@@ -1,4 +1,4 @@
-import { IAuthRepository } from '~/modules/auth/repositories/IAuthRepository';
+import { IAuthRepository } from '~/modules/authentication/repositories/IAuthRepository';
 import { AppError } from '~/shared/errors/AppError';
 import { compareDates } from '~/utils/functions';
 import { inject, injectable } from 'tsyringe';

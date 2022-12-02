@@ -5,3 +5,15 @@ export const hashPassword = async (password: string): Promise<string> => {
   const hash = bcrypt.hash(password, salt);
   return hash;
 };
+
+export const compareDates = (firstDate: string, secondDate: string): any => {
+  const todayDate = dayjs().format('DD-MM-YYYY');
+  if (
+    firstDate < todayDate ||
+    secondDate < todayDate ||
+    firstDate > secondDate
+  ) {
+    return null;
+  }
+  return { firstDate, secondDate };
+};
