@@ -1,4 +1,4 @@
-import { ICreateTaskDTO, IGetTaskByIdDTO, IUpdateTaskDTO } from '../infra/dtos';
+import { ICreateTaskDTO, IGetTaskByIdDTO, IUpdateTaskDTO } from '../http/dtos';
 
 interface ITasksRepository {
   index(): Promise<[] | any>;

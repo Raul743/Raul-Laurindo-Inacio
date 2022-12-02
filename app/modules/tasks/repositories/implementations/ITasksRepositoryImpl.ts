@@ -2,8 +2,8 @@ import {
   IGetTaskByIdDTO,
   ICreateTaskDTO,
   IUpdateTaskDTO,
-} from '../../infra/dtos';
-import { Task } from '../../infra/entities/Tasks';
+} from '../../http/dtos';
+import { Task } from '../../http/entities/Tasks';
 import { ITasksRepository } from '../ITasksRepository';
 
 class ITasksRepositoryImpl implements ITasksRepository {

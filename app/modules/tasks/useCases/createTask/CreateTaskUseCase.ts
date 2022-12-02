@@ -3,8 +3,8 @@ import { AppError } from '~/shared/errors/AppError';
 import { compareDates } from '~/utils/functions';
 import { inject, injectable } from 'tsyringe';
 
-import { ICreateTaskDTO } from '../../infra/dtos';
-import { tasksErrorsMessages } from '../../infra/errors/tasksErrosMessages';
+import { ICreateTaskDTO } from '../../http/dtos';
+import { tasksErrorsMessages } from '../../http/errors/tasksErrosMessages';
 import { ITasksRepository } from '../../repositories/ITasksRepository';
 
 @injectable()

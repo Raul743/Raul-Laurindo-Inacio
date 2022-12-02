@@ -1,11 +1,11 @@
-import { User } from '~/modules/authentication/infra/entities/Users';
+import { User } from '~/modules/authentication/http/entities/Users';
 
 import {
   IGetUserDTO,
   ICreateUsersDTO,
   IUpdateUsersDTO,
   IGetUserByEmail,
-} from '../../infra/dtos';
+} from '../../http/dtos';
 import { IAuthRepository } from '../IAuthRepository';
 
 class IAuthRepositoryImpl implements IAuthRepository {

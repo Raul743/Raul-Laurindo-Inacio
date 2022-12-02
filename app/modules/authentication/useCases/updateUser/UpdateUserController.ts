@@ -2,15 +2,16 @@ import { IAppResponse } from '~/@types';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { IUpdateUsersDTO } from '../../infra/dtos';
+import { IUpdateUsersDTO } from '../../http/dtos';
 import { UpdateUserUseCase } from './UpdateUserUseCase';
 
 class UpdateUserController {
   async handle(
-    req: Request<unknown, unknown, IUpdateUsersDTO>,
+    req: Request<{ id: string }, unknown, IUpdateUsersDTO>,
     res: Response<IAppResponse<any>>
   ): Promise<Response> {
-    const { _id, username, email, password, role } = req.body;
+    const { id: _id } = req.params;
+    const { username, email, password, role } = req.body;
     const useCase = container.resolve(UpdateUserUseCase);
 
     const user = await useCase.execute({
@@ -22,7 +23,7 @@ class UpdateUserController {
     });
 
     return res
-      .status(200)
+      .status(201)
       .json({ success: true, message: 'User Updated', data: user });
   }
 }

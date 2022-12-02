@@ -13,7 +13,10 @@ export const createTask = async (
     priority: yup.number().min(1).max(8).required(),
     status: yup
       .string()
-      .matches(/(^in-backlog$|^pending$|^in-progress$|^in-pr$|^done$)/)
+      .matches(
+        /(^in-backlog$|^pending$|^in-progress$|^in-pr$|^done$)/,
+        'the information that you put in this camp does not validate'
+      )
       .required(),
     tags: yup.string().required(),
   });
