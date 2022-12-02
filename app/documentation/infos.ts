@@ -1,9 +1,9 @@
 const infos = {
-  openapi: '3.0.3',
+  openapi: '3.0.1',
   info: {
-    title: 'Mamboo Challenge',
-    description: 'Mamboo Challenge - API Documentation',
-    version: '1.0.0 - 2022',
+    title: 'Mamboo ',
+    description: 'Mamboo Tasks  Documentation',
+    version: '1.0.0',
   },
 };
 
