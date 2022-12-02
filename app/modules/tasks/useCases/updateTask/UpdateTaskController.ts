@@ -2,7 +2,7 @@ import { IAppResponse } from '~/@types';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { IUpdateTaskDTO } from '../../infra/dtos';
+import { IUpdateTaskDTO } from '../../http/dtos';
 import { UpdateTaskUseCase } from './UpdateTaskUseCase';
 
 class UpdateTaskController {

@@ -1,8 +1,8 @@
 // importing files
 import { ensureAuthenticated } from '~/middlewares/ensureAuthenticated';
-import authenticationRoutes from '~/modules/authentication/infra/routes/auth.routes';
-import usersRoutes from '~/modules/authentication/infra/routes/users.routes';
-import tasksRoutes from '~/modules/tasks/infra/routes/tasks.routes';
+import authenticationRoutes from '~/modules/authentication/http/routes/auth.routes';
+import usersRoutes from '~/modules/authentication/http/routes/users.routes';
+import tasksRoutes from '~/modules/tasks/http/routes/tasks.routes';
 import { Router } from 'express';
 
 import baseRoute from './base.routes';

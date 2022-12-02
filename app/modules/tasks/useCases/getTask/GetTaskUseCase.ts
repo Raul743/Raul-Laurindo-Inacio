@@ -1,8 +1,8 @@
 import { AppError } from '~/shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 
-import { IGetTaskByIdDTO } from '../../infra/dtos';
-import { tasksErrorsMessages } from '../../infra/errors/tasksErrosMessages';
+import { IGetTaskByIdDTO } from '../../http/dtos';
+import { tasksErrorsMessages } from '../../http/errors/tasksErrosMessages';
 import { ITasksRepository } from '../../repositories/ITasksRepository';
 
 @injectable()

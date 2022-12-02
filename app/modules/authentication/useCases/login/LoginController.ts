@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { IUserLoginDTO } from '../../infra/dtos';
+import { IUserLoginDTO } from '../../http/dtos';
 import { LoginUseCase } from './LoginUseCase';
 
 class LoginController {

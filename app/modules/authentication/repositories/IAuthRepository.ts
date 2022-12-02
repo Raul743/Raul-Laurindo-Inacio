@@ -3,7 +3,7 @@ import {
   IGetUserByEmail,
   IGetUserDTO,
   IUpdateUsersDTO,
-} from '../infra/dtos';
+} from '../http/dtos';
 
 interface IAuthRepository {
   show({ _id }: IGetUserDTO): Promise<any | null>;

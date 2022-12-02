@@ -2,12 +2,12 @@ import { IAppResponse } from '~/@types';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { ICreateUsersDTO } from '../../infra/dtos';
+import { ICreateUsersDTO } from '../../http/dtos';
 import { CreateUserUseCase } from './CreateUserUseCase';
 
 class CreateUserController {
   async handle(
-    req: Request<unknown, unknown, ICreateUsersDTO>,
+    req: Request<any, any, ICreateUsersDTO>,
     res: Response<IAppResponse<any>>
   ): Promise<Response> {
     const { username, email, password, role } = req.body;

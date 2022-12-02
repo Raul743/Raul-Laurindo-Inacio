@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { injectable, inject } from 'tsyringe';
 
-import { IUserLoginDTO } from '../../infra/dtos';
-import { usersErrorsMessages } from '../../infra/errors/usersErrorsMessages';
+import { IUserLoginDTO } from '../../http/dtos';
+import { usersErrorsMessages } from '../../http/errors/usersErrorsMessages';
 import { IAuthRepository } from '../../repositories/IAuthRepository';
 
 @injectable()

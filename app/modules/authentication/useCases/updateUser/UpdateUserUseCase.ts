@@ -3,8 +3,8 @@ import { AppError } from '~/shared/errors/AppError';
 import { hashPassword } from '~/utils/functions';
 import { injectable, inject } from 'tsyringe';
 
-import { IUpdateUsersDTO } from '../../infra/dtos';
-import { usersErrorsMessages } from '../../infra/errors/usersErrorsMessages';
+import { IUpdateUsersDTO } from '../../http/dtos';
+import { usersErrorsMessages } from '../../http/errors/usersErrorsMessages';
 import { IAuthRepository } from '../../repositories/IAuthRepository';
 
 @injectable()

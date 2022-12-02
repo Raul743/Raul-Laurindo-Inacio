@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-import { IUpdateTaskDTO } from '../../infra/dtos';
+import { IUpdateTaskDTO } from '../../http/dtos';
 import { ITasksRepository } from '../../repositories/ITasksRepository';
 
 @injectable()
