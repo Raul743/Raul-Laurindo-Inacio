@@ -5,7 +5,7 @@ import { CreateTaskController } from '../../use-cases/createTask/CreateTaskContr
 import { DeleteTaskController } from '../../use-cases/deleteTask/DeleteTaskController';
 import { GetTaskController } from '../../use-cases/getTask/GetTaskController';
 import { UpdateTaskController } from '../../use-cases/updateTask/UpdateTaskController';
-import { createTask } from '../validators/tasks.validators';
+import { createTask } from '../middleware/tasks.validators';
 
 const routes = Router();
 

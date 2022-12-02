@@ -53,19 +53,19 @@ export default {
         name: 'members',
         in: 'body',
         schema: {
-          type: 'string',
+          type: 'array',
           description:
             'Update whats the member that have e responsibility to make this task',
-          example: '6387fad447bb3c76b54faf05',
+          example: '[6387fad447bb3c76b54faf05]',
         },
       },
       {
         name: 'tags',
         in: 'body',
         schema: {
-          type: 'string',
+          type: 'array',
           description: 'Put any tag for this task',
-          example: 'AUTH',
+          example: '[AUTH]',
         },
       },
       {

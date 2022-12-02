@@ -10,17 +10,14 @@ export const createUser = async (
   next: NextFunction
 ) => {
   const schema = yup.object().shape({
-    username: yup.string().required().min(8).max(32),
+    name: yup.string().required().min(8).max(32),
     email: yup.string().email().required(usersErrorsMessages.emailIsRequired),
     password: yup
       .string()
       .min(6)
       .max(16)
       .required(usersErrorsMessages.passwordIsRequired),
-    role: yup
-      .string()
-      .matches(/(^admin$|^frontend$|^backend$|^ui\\ux$|^devops$)/)
-      .required(),
+    role: yup.array().of(yup.string()),
   });
 
   await showError(req, res, next, schema);

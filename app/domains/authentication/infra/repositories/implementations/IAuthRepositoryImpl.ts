@@ -13,13 +13,13 @@ class IAuthRepositoryImpl implements IAuthRepository {
     return User.findById(_id);
   }
   async create({
-    username,
+    name,
     email,
     password,
     role,
   }: ICreateUsersDTO): Promise<any | null> {
     const user = await User.create({
-      username,
+      name,
       email,
       password,
       role,
@@ -28,14 +28,14 @@ class IAuthRepositoryImpl implements IAuthRepository {
   }
   async update({
     _id,
-    username,
+    name,
     email,
     password,
     role,
   }: IUpdateUsersDTO): Promise<any | null> {
     const updateUser = await User.findByIdAndUpdate(_id, {
       $set: {
-        username,
+        name,
         email,
         password,
         role,

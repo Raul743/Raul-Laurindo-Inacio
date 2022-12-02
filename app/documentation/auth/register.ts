@@ -5,12 +5,12 @@ export default {
     operationId: 'create',
     parameters: [
       {
-        name: 'username',
+        name: 'name',
         in: 'body',
         schema: {
           type: 'string',
-          description: 'username for user register',
-          example: 'luiscaputo',
+          description: 'name for user register',
+          example: 'Raul Inacio',
         },
       },
       {
@@ -35,10 +35,10 @@ export default {
         name: 'role',
         in: 'body',
         schema: {
-          type: 'date',
+          type: 'array',
           description:
             'User Role, role can be: admin, frontend, backend, ui/ux, devops',
-          example: 'admin',
+          example: '[admin]',
         },
       },
     ],

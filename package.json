@@ -1,5 +1,5 @@
 {
-  "name": "mamboo-challenge-api",
+  "name": "Api Mamboo Tasks",
   "version": "1.0.0",
   "description": "API Mamboo Task",
   "main": "build/infra/server.js",

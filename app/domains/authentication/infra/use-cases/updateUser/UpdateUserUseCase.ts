@@ -13,23 +13,23 @@ class UpdateUserUseCase {
     @inject('IAuthRepositoryImpl')
     private repository: IAuthRepository
   ) {}
-  async execute(props: IUpdateUsersDTO) {
+  async execute({ _id, email, name, password, role }: IUpdateUsersDTO) {
     const user = await this.repository.show({
-      _id: props._id,
+      _id,
     });
     if (!user) {
       throw new AppError(usersErrorsMessages.userNotFound, 404);
     }
 
     const salt = await bcrypt.genSalt(12);
-    const hash = await bcrypt.hash(props.password ?? user.password, salt);
+    const hash = await bcrypt.hash(password ?? user.password, salt);
 
     const update = await this.repository.update({
-      _id: props._id,
-      username: props.username,
-      email: props.email,
+      _id,
+      name,
+      email,
       password: hash,
-      role: props.role,
+      role,
     });
 
     return update;

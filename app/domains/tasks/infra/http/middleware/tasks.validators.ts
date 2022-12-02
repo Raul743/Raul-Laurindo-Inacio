@@ -8,17 +8,11 @@ export const createTask = async (
   next: NextFunction
 ) => {
   const schema = yup.object().shape({
-    title: yup.string().required().min(8).max(40),
+    title: yup.string().required().min(2).max(40),
     description: yup.string().required(),
     priority: yup.number().min(1).max(8).required(),
-    status: yup
-      .string()
-      .matches(
-        /(^in-backlog$|^pending$|^in-progress$|^in-pr$|^done$)/,
-        'the information that you put in this camp does not validate'
-      )
-      .required(),
-    tags: yup.string().required(),
+    tags: yup.array().of(yup.string()),
+    members: yup.array().of(yup.string()),
   });
 
   await showError(req, res, next, schema);
