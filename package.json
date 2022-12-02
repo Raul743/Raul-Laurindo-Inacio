@@ -1,14 +1,13 @@
 {
   "name": "mamboo-challenge-api",
   "version": "1.0.0",
-  "description": "API for Mamboo Challenge APP",
-  "main": "build/server.js",
-  "repository": "git@github.com:luiscaputo/mamboo-challenge.git",
-  "author": "luiscaputo <luiscaputo15@gmail.com>",
+  "description": "API Mamboo Task",
+  "main": "build/infra/server.js",
+  "repository": "https://github.com/Raul743/Raul-Laurindo-Inacio",
   "license": "MIT",
   "scripts": {
     "start": "node .",
-    "dev": "ts-node-dev --inspect -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify app/server.ts",
+    "dev": "ts-node-dev --inspect -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify app/infra/server.ts",
     "lint": "eslint --fix --ext .ts,.tsx ./app",
     "build": "rimraf build && babel app --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored"
   },

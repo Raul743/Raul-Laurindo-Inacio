@@ -14,4 +14,4 @@ RUN npm run build
 
 EXPOSE 49151
 
-CMD [ "node", "./build/server.js" ]
+CMD [ "node", "./build/infra/server.js" ]
