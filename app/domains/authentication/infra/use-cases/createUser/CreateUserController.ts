@@ -10,10 +10,10 @@ class CreateUserController {
     req: Request<any, any, ICreateUsersDTO>,
     res: Response<IAppResponse<any>>
   ): Promise<Response> {
-    const { username, email, password, role } = req.body;
+    const { name, email, password, role } = req.body;
     const useCase = container.resolve(CreateUserUseCase);
 
-    const user = await useCase.execute({ username, email, password, role });
+    const user = await useCase.execute({ name, email, password, role });
 
     return res
       .status(201)

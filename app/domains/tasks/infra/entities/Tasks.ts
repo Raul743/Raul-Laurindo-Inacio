@@ -5,8 +5,8 @@ type ITaskDocument = Document & {
   description: string;
   priority: number;
   status: 'pending' | 'in-progress' | 'done';
-  members: string;
-  tags: string;
+  members?: string[];
+  tags: string[];
   startedAt: Date;
   finishedAt: Date;
 };
@@ -17,18 +17,22 @@ const taskSchema = new Schema<ITaskDocument>(
     description: String,
     priority: { type: Number, required: true, min: 1, max: 8 },
     status: { type: String, required: true },
-    members: [String],
+    members: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+      },
+    ],
     tags: [String],
-    startedAt: ['Date'],
-    finishedAt: ['Date'],
+    startedAt: Date,
+    finishedAt: Date,
   },
   {
     timestamps: true,
     collection: 'tasks',
-    versionKey: false,
   }
 );
 
-const Task = mongoose.model<ITaskDocument>('Task', taskSchema, 'tasks');
+const Task = mongoose.model<ITaskDocument>('task', taskSchema);
 
 export { Task };

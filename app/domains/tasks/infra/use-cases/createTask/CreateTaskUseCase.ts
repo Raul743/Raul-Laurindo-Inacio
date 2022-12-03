@@ -3,7 +3,6 @@ import { AppError } from '~/shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 
 import { ICreateTaskDTO } from '../../../dtos';
-import { tasksErrorsMessages } from '../../http/errors/tasksErrosMessages';
 import { ITasksRepository } from '../../repositories/ITasksRepository';
 
 @injectable()
@@ -24,19 +23,22 @@ class CreateTaskUseCase {
     tags,
     title,
   }: ICreateTaskDTO) {
-    const member = await this.aRepository.show({
-      _id: members,
+    members?.forEach(async (members) => {
+      const memberTaks = await this.aRepository.show({
+        _id: members,
+      });
+
+      if (!memberTaks) {
+        throw new AppError('error no id send to members');
+      }
     });
-    if (!member) {
-      throw new AppError(tasksErrorsMessages.memberNotFound, 404);
-    }
 
     const task = await this.repository.create({
       title,
       description,
       priority,
       tags,
-      members: member.username,
+      members,
       status,
       startedAt,
       finishedAt,

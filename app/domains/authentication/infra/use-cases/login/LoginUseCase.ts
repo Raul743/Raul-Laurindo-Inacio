@@ -17,7 +17,7 @@ class LoginUseCase {
     const user = await this.repository.getUserByEmail({
       email,
     });
-
+    console.log(user);
     if (!user) {
       throw new AppError(usersErrorsMessages.userNotFound);
     }
@@ -30,7 +30,7 @@ class LoginUseCase {
     const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET ?? '', {
       expiresIn: process.env.JWT_TOKEN_EXPIRE_TIME,
     });
-    const { _id: id, username, role } = user;
+    const { _id: id, name, role } = user;
 
     return {
       auth: {
@@ -39,7 +39,7 @@ class LoginUseCase {
       },
       user: {
         id,
-        username,
+        name,
         email,
         role,
       },

@@ -1,16 +1,16 @@
 interface ICreateUsersDTO {
-  username: string;
+  name: string;
   email: string;
   password: string;
-  role: 'admin' | 'frontend' | 'backend' | 'backend' | 'ui/ux' | 'devops';
+  role: ['admin' | 'user'];
 }
 
 interface IUpdateUsersDTO {
   _id: string;
-  username?: string;
+  name?: string;
   email?: string;
   password?: string;
-  role?: 'admin' | 'frontend' | 'backend' | 'backend' | 'ui/ux' | 'devops';
+  role?: ['admin' | 'user'];
 }
 
 interface IUserLoginDTO {

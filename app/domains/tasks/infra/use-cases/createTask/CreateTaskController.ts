@@ -2,7 +2,7 @@ import { IAppResponse } from '~/@types';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
-import { ICreateTaskDTO } from '../../dtos';
+import { ICreateTaskDTO } from '../../../dtos';
 import { CreateTaskUseCase } from './CreateTaskUseCase';
 
 class CreateTaskController {

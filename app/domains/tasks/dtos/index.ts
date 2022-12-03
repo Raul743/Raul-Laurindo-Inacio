@@ -2,9 +2,9 @@ interface ICreateTaskDTO {
   title: string;
   description: string;
   priority: number;
-  status: 'in-backlog' | 'pending' | 'in-progress' | 'in-pr' | 'done';
-  members: string;
-  tags: string;
+  status: 'pending' | 'in-progress' | 'done';
+  members?: string[];
+  tags: string[];
   startedAt: Date;
   finishedAt: Date;
 }
@@ -14,9 +14,9 @@ interface IUpdateTaskDTO {
   title?: string;
   description?: string;
   priority?: number;
-  status?: 'in-backlog' | 'pending' | 'in-progress' | 'in-pr' | 'done';
-  members?: string;
-  tags?: string;
+  status?: 'pending' | 'in-progress' | 'done';
+  members?: string[];
+  tags?: string[];
   startedAt?: Date;
   finishedAt?: Date;
 }

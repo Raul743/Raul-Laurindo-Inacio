@@ -11,12 +11,12 @@ class UpdateUserController {
     res: Response<IAppResponse<any>>
   ): Promise<Response> {
     const { id: _id } = req.params;
-    const { username, email, password, role } = req.body;
+    const { name, email, password, role } = req.body;
     const useCase = container.resolve(UpdateUserUseCase);
 
     const user = await useCase.execute({
       _id,
-      username,
+      name,
       email,
       password,
       role,

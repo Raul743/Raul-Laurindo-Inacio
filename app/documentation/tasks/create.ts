@@ -44,19 +44,19 @@ export default {
         name: 'members',
         in: 'body',
         schema: {
-          type: 'string',
+          type: 'array',
           description:
             'Put whats the member that have e responsibility to make this task',
-          example: '6387fad447bb3c76b54faf05',
+          example: '[6387fad447bb3c76b54faf05]',
         },
       },
       {
         name: 'tags',
         in: 'body',
         schema: {
-          type: 'string',
+          type: 'array',
           description: 'Put any tag for this task',
-          example: 'AUTH',
+          example: '[AUTH]',
         },
       },
       {
@@ -66,7 +66,7 @@ export default {
           type: 'date',
           description:
             'Put the date to start this task, use this format DD-MM-YYYY',
-          example: '01/12/2022',
+          example: '01-12-2022',
         },
       },
       {
@@ -76,7 +76,7 @@ export default {
           type: 'date',
           description:
             'Put the date to finish this task, use this format DD-MM-YYYY',
-          example: '01/12/2022',
+          example: '01-12-2022',
         },
       },
     ],

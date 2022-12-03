@@ -1,5 +1,4 @@
 import { AppError } from '~/shared/errors/AppError';
-import bcrypt from 'bcrypt';
 import { injectable, inject } from 'tsyringe';
 
 import { ICreateUsersDTO } from '../../../dtos';
@@ -12,20 +11,18 @@ class CreateUserUseCase {
     @inject('IAuthRepositoryImpl')
     private repository: IAuthRepository
   ) {}
-  async execute({ email, password, role, username }: ICreateUsersDTO) {
+  async execute({ email, password, role, name }: ICreateUsersDTO) {
     const alreadyExistsUser = await this.repository.getUserByEmail({
       email,
     });
     if (alreadyExistsUser) {
       throw new AppError(usersErrorsMessages.userAlreadyExists, 404);
     }
-    const salt = await bcrypt.genSalt(12);
-    const hash = await bcrypt.hash(password, salt);
 
     const user = await this.repository.create({
-      username,
+      name,
       email,
-      password: hash,
+      password,
       role,
     });
 
